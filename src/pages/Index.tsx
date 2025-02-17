@@ -1,8 +1,11 @@
 
 import { ArrowRight, Shield, Sun, Wind, Droplet } from "lucide-react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
+  const navigate = useNavigate();
+  
   const projects = [
     {
       title: "Solar Farm Initiative",
@@ -50,7 +53,10 @@ const Index = () => {
             <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-600">
               Join our platform to invest in renewable energy projects. Earn competitive returns while contributing to a greener planet.
             </p>
-            <button className="btn-primary animate-fade-up">
+            <button 
+              className="btn-primary animate-fade-up"
+              onClick={() => navigate('/projects')}
+            >
               Explore Projects <ArrowRight className="ml-2 h-4 w-4" />
             </button>
           </motion.div>
