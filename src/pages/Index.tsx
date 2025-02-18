@@ -1,4 +1,3 @@
-
 import { ArrowRight, Shield, Sun, Wind, Droplet } from "lucide-react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -43,8 +42,8 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-4">
-              Sustainable Investing
+            <span className="inline-block text-primary text-sm mb-4">
+              SUSTAINABLE INVESTING
             </span>
             <h1 className="mb-6 text-5xl font-bold leading-tight text-accent">
               Invest in a{" "}
@@ -53,12 +52,20 @@ const Index = () => {
             <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-600">
               Join our platform to invest in renewable energy projects. Earn competitive returns while contributing to a greener planet.
             </p>
-            <button 
-              className="btn-primary animate-fade-up"
-              onClick={() => navigate('/projects')}
-            >
-              Explore Projects <ArrowRight className="ml-2 h-4 w-4" />
-            </button>
+            <div className="space-x-4">
+              <button 
+                className="btn-primary animate-fade-up"
+                onClick={() => navigate('/projects')}
+              >
+                Explore Projects <ArrowRight className="ml-2 h-4 w-4" />
+              </button>
+              <button 
+                className="btn-secondary animate-fade-up"
+                onClick={() => navigate('/signup')}
+              >
+                Sign Up
+              </button>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -152,6 +159,47 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-white border-t mt-16">
+        <div className="container mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-lg font-bold text-primary mb-4">GreenStake</h3>
+              <p className="text-gray-600">
+                Democratizing green energy investments for a sustainable future.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2">
+                <li><a href="/projects" className="text-gray-600 hover:text-primary">Projects</a></li>
+                <li><a href="/staking" className="text-gray-600 hover:text-primary">Staking</a></li>
+                <li><a href="/governance" className="text-gray-600 hover:text-primary">Governance</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Resources</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-600 hover:text-primary">Documentation</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-primary">Whitepaper</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-primary">FAQ</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Connect</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-600 hover:text-primary">Twitter</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-primary">Discord</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-primary">Telegram</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t mt-8 pt-8 text-center text-gray-600">
+            <p>&copy; 2024 GreenStake. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

@@ -1,13 +1,28 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Wallet } from "lucide-react";
+import { useWeb3Modal } from '@web3modal/wagmi/react';
+import { useAccount } from 'wagmi';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { open } = useWeb3Modal();
+  const { address } = useAccount();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleConnect = async () => {
+    try {
+      await open();
+    } catch (error) {
+      console.error('Failed to connect wallet:', error);
+    }
+  };
+
+  const formatAddress = (addr: string) => {
+    return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
   };
 
   return (
@@ -44,9 +59,12 @@ const Navbar = () => {
             >
               Governance
             </Link>
-            <button className="btn-primary">
+            <button 
+              className="btn-primary"
+              onClick={handleConnect}
+            >
               <Wallet className="mr-2 h-4 w-4" />
-              Connect Wallet
+              {address ? formatAddress(address) : "Connect Wallet"}
             </button>
           </div>
 
@@ -91,9 +109,12 @@ const Navbar = () => {
               >
                 Governance
               </Link>
-              <button className="btn-primary">
+              <button 
+                className="btn-primary"
+                onClick={handleConnect}
+              >
                 <Wallet className="mr-2 h-4 w-4" />
-                Connect Wallet
+                {address ? formatAddress(address) : "Connect Wallet"}
               </button>
             </div>
           </div>
