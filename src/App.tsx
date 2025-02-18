@@ -18,24 +18,25 @@ import NotFound from "./pages/NotFound";
 // 1. Get projectId at https://cloud.walletconnect.com
 const projectId = 'YOUR_PROJECT_ID';
 
-// 2. Create wagmi config
-const metadata = {
-  name: 'GreenStake',
-  description: 'Sustainable Energy Investment Platform',
-  url: 'https://greenstake.com',
-  icons: ['https://avatars.githubusercontent.com/u/37784886']
-}
-
 const config = createConfig({
   chains: [mainnet],
   transports: {
     [mainnet.id]: http()
-  },
-  metadata,
+  }
 })
 
 // 3. Create modal
-createWeb3Modal({ wagmiConfig: config, projectId, chains: [mainnet] })
+createWeb3Modal({
+  wagmiConfig: config,
+  projectId,
+  chains: [mainnet],
+  metadata: {
+    name: 'GreenStake',
+    description: 'Sustainable Energy Investment Platform',
+    url: 'https://greenstake.com',
+    icons: ['https://avatars.githubusercontent.com/u/37784886']
+  }
+})
 
 const queryClient = new QueryClient();
 
