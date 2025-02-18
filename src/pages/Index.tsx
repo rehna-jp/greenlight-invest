@@ -33,9 +33,9 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="w-full">
       {/* Hero Section */}
-      <section className="container mx-auto px-4 pt-24 pb-16">
+      <section className="w-full container mx-auto px-4 pt-32 pb-16">
         <div className="text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
